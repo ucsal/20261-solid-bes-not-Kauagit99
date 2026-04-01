@@ -1,7 +1,7 @@
 package br.com.ucsal.olimpiadas;
 
 public class AvaliacaoService {
-    
+
     private final CalculadoraNota calculadora;
 
     public AvaliacaoService(CalculadoraNota calculadora) {

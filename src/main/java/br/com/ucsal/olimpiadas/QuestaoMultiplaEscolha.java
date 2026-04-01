@@ -3,11 +3,13 @@ package br.com.ucsal.olimpiadas;
 import java.util.Arrays;
 
 public class QuestaoMultiplaEscolha extends Questao {
-    
+
     private String[] alternativas = new String[5];
     private char alternativaCorreta;
 
-    public String[] getAlternativas() { return alternativas; }
+    public String[] getAlternativas() {
+        return alternativas;
+    }
 
     public void setAlternativas(String[] alternativas) {
         if (alternativas == null || alternativas.length != 5) {
@@ -16,7 +18,9 @@ public class QuestaoMultiplaEscolha extends Questao {
         this.alternativas = Arrays.copyOf(alternativas, 5);
     }
 
-    public char getAlternativaCorreta() { return alternativaCorreta; }
+    public char getAlternativaCorreta() {
+        return alternativaCorreta;
+    }
 
     public void setAlternativaCorreta(char alternativaCorreta) {
         this.alternativaCorreta = normalizar(alternativaCorreta);

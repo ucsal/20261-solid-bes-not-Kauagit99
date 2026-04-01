@@ -1,8 +1,7 @@
 package br.com.ucsal.olimpiadas;
 
-
 public class CalculadoraNotaPadrao implements CalculadoraNota {
-    
+
     @Override
     public int calcular(Tentativa tentativa) {
         int acertos = 0;

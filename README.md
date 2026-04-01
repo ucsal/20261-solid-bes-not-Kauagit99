@@ -27,3 +27,7 @@ Com isso, cada classe passou a ter um único motivo para mudar, deixando o proje
 ## Letra I - Princípio da Segregação de Interfaces (ISP)
 **O problema:** Se uma classe precisasse apenas consultar os participantes, ela ainda teria acesso aos métodos de salvar ou deletar caso dependesse diretamente do repositório completo.
 **A solução:** Criei interfaces menores e mais específicas, como `LeituraParticipante` e `EscritaParticipante`. Assim, quem precisa apenas ler dados não é obrigado a depender de métodos que alteram os dados.
+
+## Letra D - Princípio da Inversão de Dependência (DIP)
+**O problema:** A classe `App` e as regras de negócio dependiam diretamente do `Scanner` e do `System.out`. Se o projeto virasse uma aplicação Web amanhã, todo esse código seria perdido.
+**A solução:** Criei uma interface `InteracaoUsuario` que dita como o sistema deve pedir e mostrar dados. Depois, criei a classe `InteracaoConsole` que implementa isso usando o Scanner. Agora, as regras de negócio dependem de uma abstração (interface) e não de um detalhe de implementação (console).
