@@ -1,4 +1,4 @@
-# Aplicação do SOLID (SRP)
+# Letra S - Aplicação do SOLID (SRP)
 
 Este é o repositório do meu trabalho da UCSAL aplicando os conceitos de SOLID no nosso projeto em Java. 
 
@@ -16,6 +16,10 @@ Para organizar tudo e respeitar o SRP, eu dividi o código para que cada classe 
 
 Com isso, cada classe passou a ter um único motivo para mudar, deixando o projeto mais organizado e muito mais fácil de entender.
 
-## Princípio do Aberto/Fechado (OCP)
+## Letra O - Princípio do Aberto/Fechado (OCP)
 O problema: O método que calculava a nota da prova estava fixo. Se o precisasse mudar a regra (ex: questões com pesos diferentes), eu teria que alterar o código que já estava funcionando.
 A solução: Criei uma interface `CalculadoraNota` e uma implementação `CalculadoraNotaPadrao`. Agora, se surgir uma nova regra de pontuação, eu só preciso criar uma nova classe que implementa essa interface, sem mexer no que já está pronto. O código ficou fechado para modificação, mas aberto para extensão.
+
+## Letra L - Princípio da Substituição de Liskov (LSP)
+**O problema:** A classe `Questao` era muito genérica. Se eu quisesse adicionar questões de "Verdadeiro ou Falso" no futuro, o sistema poderia quebrar ou eu teria que fazer várias checagens (ifs) para saber como corrigir a prova.
+**A solução:** Transformei a `Questao` em uma classe base (abstrata) e criei a `QuestaoMultiplaEscolha` herdando dela. Agora, qualquer novo tipo de questão que eu criar poderá substituir a classe base no sistema de correção da prova sem quebrar a aplicação.
