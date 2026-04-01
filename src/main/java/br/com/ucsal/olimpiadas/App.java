@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
 
-    // Dependências instanciadas
+
     private static final ParticipanteRepository participanteRepo = new ParticipanteRepository();
     private static final ProvaRepository provaRepo = new ProvaRepository();
     private static final QuestaoRepository questaoRepo = new QuestaoRepository();
@@ -111,8 +111,7 @@ public class App {
         q.setAlternativas(alternativas);
         q.setAlternativaCorreta(correta);
 
-        // Opcional: Aqui poderíamos pedir o FEN, deixei em branco para simplificar, 
-        // mas você pode adaptar a leitura do Scanner se desejar.
+        
 
         questaoRepo.salvar(q);
         System.out.println("Questão cadastrada: " + q.getId() + " (na prova " + provaId + ")");
