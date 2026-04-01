@@ -9,7 +9,8 @@ public class App {
     private static final ProvaRepository provaRepo = new ProvaRepository();
     private static final QuestaoRepository questaoRepo = new QuestaoRepository();
     private static final TentativaRepository tentativaRepo = new TentativaRepository();
-    private static final AvaliacaoService avaliacaoService = new AvaliacaoService();
+	private static final CalculadoraNota calculadora = new CalculadoraNotaPadrao();
+	private static final AvaliacaoService avaliacaoService = new AvaliacaoService(calculadora);
     
     private static final Scanner in = new Scanner(System.in);
 
@@ -178,7 +179,7 @@ public class App {
 
         tentativaRepo.salvar(tentativa);
 
-        int nota = avaliacaoService.calcularNota(tentativa);
+        int nota = avaliacaoService.processarNotaFinal(tentativa);
         System.out.println("\n--- Fim da Prova ---");
         System.out.println("Nota (acertos): " + nota + " / " + tentativa.getRespostas().size());
     }
@@ -190,7 +191,7 @@ public class App {
                 t.getId(), 
                 t.getParticipanteId(),
                 t.getProvaId(), 
-                avaliacaoService.calcularNota(t), 
+                avaliacaoService.processarNotaFinal(t), 
                 t.getRespostas().size()
             );
         }
