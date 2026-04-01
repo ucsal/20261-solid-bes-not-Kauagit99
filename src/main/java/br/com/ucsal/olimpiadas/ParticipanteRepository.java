@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ParticipanteRepository {
+public class ParticipanteRepository implements LeituraParticipante, EscritaParticipante {
     private final List<Participante> participantes = new ArrayList<>();
     private long proximoId = 1;
 
+    @Override
     public void salvar(Participante p) {
         p.setId(proximoId++);
         participantes.add(p);
